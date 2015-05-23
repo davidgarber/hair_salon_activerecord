@@ -56,4 +56,17 @@ describe('The app', :type => :feature) do
       expect(page).to have_content('')
     end
   end
+
+  describe('adding a client to a stylist') do
+    it('visits the index') do
+      visit('/')
+      click_link('View all stylists')
+      fill_in('name', with: 'Sarah')
+      click_button('Submit')
+      click_link('Sarah')
+      fill_in('name', with: 'Julie')
+      click_button('Submit')
+      expect(page).to have_content('Julie')
+    end
+  end
 end

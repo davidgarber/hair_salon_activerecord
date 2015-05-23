@@ -4,6 +4,23 @@
 
 <a href="/">Return to home</a>
 
+  <h3>These are the clients that <%= @stylist.name() %> has: </h3>
+    <ul>
+      <% @stylist.clients.each() do |client| %>
+      <li><%= client.name() %></li>
+      <% end %>
+    </ul>
+
+  <h3>Add a client below:</h3>
+
+  <form action="/add_client/<%= @stylist.id %>" method="post">
+    <input name="_method" type="hidden" value="post">
+    <label for="name">Name:</label>
+    <input id="name" name="name" type="text">
+
+    <button name="submit">Submit</button>
+  </form>
+
   <h3>Update a stylist below:</h3>
 
   <form action="/stylist/<%= @stylist.id %>" method="post">

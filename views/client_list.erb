@@ -1,0 +1,19 @@
+<h1>Here is a list of all of the clients:</h1>
+
+<a href='/'>Return to home</a>
+
+<ul>
+  <% @clients.each do |client| %>
+    <li><a href="/clients/<%= client.id %>"><%= client.name %></a></li>
+  <% end %>
+</ul>
+
+<h4>Add a client below:</h4>
+
+<form action="/add_client" method="post">
+  <label for="name">Name:</label>
+  <input id="name" name="name" type="text">
+
+  <button type="submit">Submit</button>
+
+</form>
