@@ -20,4 +20,15 @@ describe('The app', :type => :feature) do
       expect(page).to have_content('Sarah')
     end
   end
+
+  describe('the stylist detail') do
+    it('visits the index') do
+      visit('/')
+      click_link('View all stylists')
+      fill_in('name', with: 'Sarah')
+      click_button('Submit')
+      click_link('Sarah')
+      expect(page).to have_content('Sarah')
+    end
+  end
 end

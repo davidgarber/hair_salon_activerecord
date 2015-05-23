@@ -22,3 +22,8 @@ post('/add_stylist') do
   @stylists = Stylist.all()
   erb(:stylist_list)
 end
+
+get('/stylist/:id') do
+  @stylist = Stylist.find(params.fetch("id"))
+  erb(:stylist_detail)
+end
