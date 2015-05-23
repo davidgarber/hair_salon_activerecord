@@ -38,6 +38,8 @@ describe('The app', :type => :feature) do
       click_link('View all stylists')
       fill_in('name', with: 'Sarah')
       click_button('Submit')
+      click_link('Return to home')
+      click_link('View all stylists')
       click_link('Sarah')
       fill_in('new_name', with: 'Paula')
       click_button('Update')
