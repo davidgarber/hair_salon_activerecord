@@ -32,4 +32,16 @@ describe('The app', :type => :feature) do
     end
   end
 
+  describe('update the client') do
+    it('visits the index') do
+      visit('/')
+      click_link('View all clients')
+      fill_in('name', with: 'Julie')
+      click_button('Submit')
+      click_link('Julie')
+      fill_in('new_name', with: 'Mary')
+      click_button('Update')
+      expect(page).to have_content('Mary')
+    end
+  end
 end

@@ -64,7 +64,14 @@ post('/add_client') do
   erb(:client_list)
 end
 
-get('/client/:id') do
+get('/clients/:id') do
   @client = Client.find(params.fetch("id"))
+  erb(:client_detail)
+end
+
+patch('/client/:id') do
+  new_name = params.fetch('new_name')
+  @client = Client.find(params.fetch('id').to_i())
+  @client.update({:name => new_name})
   erb(:client_detail)
 end
