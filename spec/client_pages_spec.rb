@@ -44,4 +44,16 @@ describe('The app', :type => :feature) do
       expect(page).to have_content('Mary')
     end
   end
+
+  describe('delete the client') do
+    it('visits the index') do
+      visit('/')
+      click_link('View all clients')
+      fill_in('name', with: 'Sarah')
+      click_button('Submit')
+      click_link('Sarah')
+      click_button('Delete this client')
+      expect(page).to have_content('')
+    end
+  end
 end

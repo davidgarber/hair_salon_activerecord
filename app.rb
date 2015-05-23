@@ -75,3 +75,11 @@ patch('/client/:id') do
   @client.update({:name => new_name})
   erb(:client_detail)
 end
+
+delete('/client/:id') do
+  id = params.fetch("id")
+  @client = Client.find(id)
+  @client.destroy()
+  @clients = Client.all()
+  erb(:client_list)
+end
