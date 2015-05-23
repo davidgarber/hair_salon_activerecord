@@ -1,3 +1,3 @@
 class Client < ActiveRecord::Base
-  belongs_to(:stylists)
+  belongs_to(:stylist)
 end
