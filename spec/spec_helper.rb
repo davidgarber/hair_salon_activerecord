@@ -1,7 +1,8 @@
 ENV['RACK_ENV'] = 'test'
 
-require('sinatra/activerecod')
+require('sinatra/activerecord')
 require('capybara/rspec')
+require('rspec')
 require('pg')
 require('client')
 require('stylist')
