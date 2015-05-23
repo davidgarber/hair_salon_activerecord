@@ -1,5 +1,23 @@
-<h1>Here are the details for <%= @stylist.name() %></h1>
+<h1>Here are the details for <%= @stylist.name() %>:</h1>
 
 <a href="/stylists">Return to the stylists list</a><br><br>
 
 <a href="/">Return to home</a>
+
+  <h3>Update a stylist below:</h3>
+
+  <form action="/stylist/<%= @stylist.id %>" method="post">
+    <input name="_method" type="hidden" value="patch">
+    <label for="new_name">New Name:</label>
+    <input id="new_name" name="new_name" type="text">
+
+    <button type="update">Update</button>
+
+  </form>
+
+   <br>
+
+  <form action='/stylist/<%= @stylist.id %>' method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button type="submit">Delete this stylist</button>
+  </form>

@@ -27,3 +27,18 @@ get('/stylist/:id') do
   @stylist = Stylist.find(params.fetch("id"))
   erb(:stylist_detail)
 end
+
+patch('/stylist/:id') do
+  new_name = params.fetch('new_name')
+  @stylist = Stylist.find(params.fetch('id').to_i())
+  @stylist.update({:name => new_name})
+  erb(:stylist_detail)
+end
+
+delete('/stylist/:id') do
+  id = params.fetch("id")
+  @stylist = Stylist.find(id)
+  @stylist.destroy()
+  @stylists = Stylist.all()
+  erb(:stylist_list)
+end
