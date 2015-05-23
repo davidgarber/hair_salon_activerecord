@@ -1,0 +1,19 @@
+<h1>Here is a list of all of the stylists:</h1>
+
+<a href='/'>Return to home</a>
+
+<ul>
+  <% @stylists.each do |stylist| %>
+    <li><a href="/stylist/<%= stylist.id %>"><%= stylist.name %></a></li>
+  <% end %>
+</ul>
+
+<h4>Add a stylist below:</h4>
+
+<form action="/add_stylist" method="post">
+  <label for="name">Name:</label>
+  <input id="name" name="name" type="text">
+
+  <button type="submit">Submit</button>
+
+</form>

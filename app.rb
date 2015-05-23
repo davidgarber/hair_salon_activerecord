@@ -10,3 +10,15 @@ require('pry')
 get('/') do
   erb(:index)
 end
+
+get('/stylists') do
+  @stylists = Stylist.all()
+  erb(:stylist_list)
+end
+
+post('/add_stylist') do
+  name = params.fetch("name")
+  Stylist.create({:name => name})
+  @stylists = Stylist.all()
+  erb(:stylist_list)
+end
